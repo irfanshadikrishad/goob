@@ -1,3 +1,3 @@
-declare const hello: () => string;
+declare const hello: () => string
 
-export { hello };
+export { hello }
