@@ -1,6 +1,6 @@
 {
   "name": "goob",
-  "description": "Scrap product data from e-commerce websites.",
+  "description": "A moduler package to scrap e-commerce sites in Node.js",
   "version": "0.1.0",
   "author": {
     "name": "Irfan Shadik Rishad"
@@ -34,6 +34,7 @@
     "@commitlint/config-conventional": "^21.2.4",
     "@irfanshadikrishad/prettier": "^1.3.7",
     "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
     "tsup": "^9.0.0",
     "typescript": "5.9"
   }
