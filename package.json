@@ -1,6 +1,6 @@
 {
   "name": "goob",
-  "description": "A moduler package to scrap e-commerce sites in Node.js",
+  "description": "A modular, class-based web data extraction toolkit for Node.js",
   "version": "0.1.0",
   "author": {
     "name": "Irfan Shadik Rishad"
@@ -27,8 +27,18 @@
     "url": "git+https://github.com/irfanshadikrishad/goob.git"
   },
   "type": "module",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "prettier": "@irfanshadikrishad/prettier",
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",

@@ -4,9 +4,12 @@ export default defineConfig({
   entry: ['src/index.ts'],
   format: ['esm'],
   dts: true,
-  sourcemap: true,
   clean: true,
-  target: 'node20',
-  outDir: 'dist',
-  splitting: false,
+  sourcemap: true,
+  tsconfig: 'tsconfig.json',
+  esbuildOptions(options) {
+    options.alias = {
+      '@': './src',
+    }
+  },
 })
