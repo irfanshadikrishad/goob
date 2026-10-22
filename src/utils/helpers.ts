@@ -46,4 +46,9 @@ function parseSoldCount(soldStr: string): number {
   return isNaN(numberValue) ? 0 : Math.round(numberValue * multiplier)
 }
 
-export { parseSoldCount, sanitizeLink }
+async function waitASec() {
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+  return
+}
+
+export { parseSoldCount, sanitizeLink, waitASec }

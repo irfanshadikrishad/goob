@@ -19,11 +19,14 @@ var BaseScraper = class {
     }
     return res.text()
   }
-  /** Public entry point developers call */
+  /** Public entry point developers call. Override to add pagination. */
   async search(options) {
     const url = `${this.config.baseUrl}${this.config.searchPath(options.query)}`
     const html = await this.fetchHtml(url)
-    return this.parse(html, options.limit)
+    const products = this.parse(html, 0)
+    return options.limit !== void 0
+      ? products.slice(0, options.limit)
+      : products
   }
 }
 
@@ -63,6 +66,10 @@ function parseSoldCount(soldStr) {
   const numberValue = parseFloat(numericPart)
   return isNaN(numberValue) ? 0 : Math.round(numberValue * multiplier)
 }
+async function waitASec() {
+  await new Promise((resolve) => setTimeout(resolve, 1e3))
+  return
+}
 
 // src/adapters/DarazScraper.ts
 var DarazScraper = class extends BaseScraper {
@@ -71,21 +78,46 @@ var DarazScraper = class extends BaseScraper {
     baseUrl: 'https://www.daraz.com.bd',
     searchPath: (q) => `/catalog/?ajax=true&q=${encodeURIComponent(q)}`,
   }
-  parse(html, limit) {
+  /** Override search to handle pagination */
+  async search(options) {
+    const targetLimit = options.limit ?? 40
+    const allProducts = []
+    let page = 1
+    while (allProducts.length < targetLimit) {
+      const url = `${this.config.baseUrl}${this.config.searchPath(options.query)}&page=${page}`
+      const html = await this.fetchHtml(url)
+      const pageProducts = this.parse(html, allProducts.length)
+      if (pageProducts.length === 0) break
+      allProducts.push(...pageProducts)
+      page++
+      await waitASec()
+      if (page > 110) break
+    }
+    return allProducts.slice(0, targetLimit)
+  }
+  /**
+   * @param offset Number of products already collected in previous pages.
+   *               Ensures `number` is continuous across pages.
+   */
+  parse(html, offset = 0) {
     const data = JSON.parse(html)
     const items = data?.mods?.listItems ?? []
-    return items.slice(0, limit ?? items.length).map((it) => {
+    return items.map((it, count) => {
+      const rawUrl = sanitizeLink(it.itemUrl)
       const product = {
+        number: offset + count + 1,
         title: it.name,
         price: Number(it.price),
         originalPrice: Number(it.originalPrice),
         currency: 'BDT',
-        url: sanitizeLink(it.itemUrl?.startsWith('http'))
-          ? sanitizeLink(it.itemUrl)
-          : `https:${sanitizeLink(it.itemUrl)}`,
+        url: rawUrl?.startsWith('http') ? rawUrl : `https:${rawUrl}`,
         source: 'daraz',
         totalSold: parseSoldCount(it.itemSoldCntShow),
         review: Number(it.review),
+        location: it.location,
+        description: it.description,
+        seller: it.sellerName,
+        brand: it.brandName,
       }
       if (it.image) product.imageUrl = it.image
       if (it.ratingScore) product.rating = Number(it.ratingScore)
@@ -119,6 +151,7 @@ var RokomariScraper = class extends BaseScraper {
       const priceMatch = priceText.replace(/,/g, '').match(/[\d.]+/)
       const price = priceMatch ? parseFloat(priceMatch[0]) : 0
       const product = {
+        number: 0,
         title,
         price,
         currency: 'BDT',

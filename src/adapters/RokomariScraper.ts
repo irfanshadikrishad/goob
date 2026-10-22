@@ -33,6 +33,7 @@ export class RokomariScraper extends BaseScraper {
       const price = priceMatch ? parseFloat(priceMatch[0]) : 0
 
       const product: Product = {
+        number: 0,
         title,
         price,
         currency: 'BDT',

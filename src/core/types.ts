@@ -1,5 +1,6 @@
 // src/core/types.ts
 export interface Product {
+  number: number
   title: string
   price: number
   originalPrice?: number
@@ -11,6 +12,10 @@ export interface Product {
   source: string // "daraz" | "rokomari"
   totalSold?: string | number
   review?: number
+  location?: string
+  description?: string
+  seller?: string
+  brand?: string
 }
 
 export interface ScrapeOptions {

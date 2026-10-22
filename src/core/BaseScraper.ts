@@ -24,13 +24,20 @@ export abstract class BaseScraper {
     return res.text()
   }
 
-  /** Subclasses MUST implement: parse HTML string into Product[] */
-  protected abstract parse(html: string, limit?: number): Product[]
+  /**
+   * Subclasses MUST implement: parse a raw response into Product[].
+   * @param offset Number of products already collected on previous pages.
+   *               Use it to keep `number` continuous across pages.
+   */
+  protected abstract parse(html: string, offset?: number): Product[]
 
-  /** Public entry point developers call */
+  /** Public entry point developers call. Override to add pagination. */
   async search(options: ScrapeOptions): Promise<Product[]> {
     const url = `${this.config.baseUrl}${this.config.searchPath(options.query)}`
     const html = await this.fetchHtml(url)
-    return this.parse(html, options.limit)
+    const products = this.parse(html, 0)
+    return options.limit !== undefined
+      ? products.slice(0, options.limit)
+      : products
   }
 }

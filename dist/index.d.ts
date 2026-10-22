@@ -1,4 +1,5 @@
 interface Product {
+  number: number
   title: string
   price: number
   originalPrice?: number
@@ -10,6 +11,10 @@ interface Product {
   source: string
   totalSold?: string | number
   review?: number
+  location?: string
+  description?: string
+  seller?: string
+  brand?: string
 }
 interface ScrapeOptions {
   query: string
@@ -25,15 +30,25 @@ declare abstract class BaseScraper {
   protected abstract config: SiteConfig
   /** Fetch raw HTML for a search query. Override for custom headers/auth. */
   protected fetchHtml(url: string): Promise<string>
-  /** Subclasses MUST implement: parse HTML string into Product[] */
-  protected abstract parse(html: string, limit?: number): Product[]
-  /** Public entry point developers call */
+  /**
+   * Subclasses MUST implement: parse a raw response into Product[].
+   * @param offset Number of products already collected on previous pages.
+   *               Use it to keep `number` continuous across pages.
+   */
+  protected abstract parse(html: string, offset?: number): Product[]
+  /** Public entry point developers call. Override to add pagination. */
   search(options: ScrapeOptions): Promise<Product[]>
 }
 
 declare class DarazScraper extends BaseScraper {
   protected config: SiteConfig
-  protected parse(html: string, limit?: number): Product[]
+  /** Override search to handle pagination */
+  search(options: ScrapeOptions): Promise<Product[]>
+  /**
+   * @param offset Number of products already collected in previous pages.
+   *               Ensures `number` is continuous across pages.
+   */
+  protected parse(html: string, offset?: number): Product[]
 }
 
 declare class RokomariScraper extends BaseScraper {
