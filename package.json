@@ -20,7 +20,8 @@
   },
   "keywords": [
     "goob",
-    "goob-core"
+    "goob-core",
+    "scraper"
   ],
   "homepage": "https://github.com/irfanshadikrishad/goob#readme",
   "bugs": {
