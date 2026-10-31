@@ -1,10 +1,9 @@
 {
-  "name": "goob",
-  "description": "A modular, class-based web data extraction toolkit for Node.js",
+  "name": "@irfanshadikrishad/goob",
+  "description": "A modular, class-based web data extraction toolkit for e-commerce websites, built w/ Node.js.",
   "version": "0.1.0",
-  "author": {
-    "name": "Irfan Shadik Rishad"
-  },
+  "author": "Irfan Shadik Rishad <hello@irfanshadikrishad.dev> (https://www.irfanshadikrishad.dev)",
+  "license": "MIT",
   "scripts": {
     "build": "tsup",
     "bump:major": "npm version major -m \"chore(release): v%s\"",
@@ -30,15 +29,22 @@
     "type": "git",
     "url": "git+https://github.com/irfanshadikrishad/goob.git"
   },
+  "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "prettier": "@irfanshadikrishad/prettier",
   "dependencies": {
     "cheerio": "^1.2.0"
@@ -46,12 +52,18 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
-    "@irfanshadikrishad/prettier": "^1.3.7",
+    "@irfanshadikrishad/prettier": "^1.3.9",
     "@jest/globals": "^30.5.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
     "ts-jest": "^29.4.15",
     "tsup": "^9.0.0",
     "typescript": "5.9"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
