@@ -78,7 +78,6 @@ var DarazScraper = class extends BaseScraper {
     baseUrl: 'https://www.daraz.com.bd',
     searchPath: (q) => `/catalog/?ajax=true&q=${encodeURIComponent(q)}`,
   }
-  /** Override search to handle pagination */
   async search(options) {
     const targetLimit = options.limit ?? 40
     const allProducts = []
@@ -91,7 +90,7 @@ var DarazScraper = class extends BaseScraper {
       allProducts.push(...pageProducts)
       page++
       await waitASec()
-      if (page > 110) break
+      if (page > 102) break
     }
     return allProducts.slice(0, targetLimit)
   }

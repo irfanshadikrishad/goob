@@ -42,7 +42,6 @@ declare abstract class BaseScraper {
 
 declare class DarazScraper extends BaseScraper {
   protected config: SiteConfig
-  /** Override search to handle pagination */
   search(options: ScrapeOptions): Promise<Product[]>
   /**
    * @param offset Number of products already collected in previous pages.
