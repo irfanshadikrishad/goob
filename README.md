@@ -56,12 +56,23 @@ npm i @irfanshadikrishad/goob
 #### Use Cases
 
 ```js
-import { DarazScraper } from '@irfanshadikrishad/goob'
+import { DarazScraper, RokomariScraper } from '@irfanshadikrishad/goob'
 
+const rokomari = new RokomariScraper()
 const daraz = new DarazScraper()
-const products = await daraz.search({ query: 'watch', limit: 10 })
 
-console.log(products)
+const rokomariProducts = await rokomari.search({
+  query: 'watch',
+  limit: 1,
+})
+
+const darazProducts = await daraz.search({
+  query: 'watch',
+  limit: 1,
+})
+
+console.log('Rokomari Products:', rokomariProducts)
+console.log('Daraz Products:', darazProducts)
 ```
 
 #### Support

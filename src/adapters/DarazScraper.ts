@@ -1,7 +1,6 @@
-// src/adapters/DarazScraper.ts
 import { BaseScraper } from '@/core/BaseScraper.js'
 import { Product, ScrapeOptions, SiteConfig } from '@/core/types.js'
-import { parseSoldCount, sanitizeLink, waitASec } from '@/utils/helpers.js'
+import { parseSoldCount, toAbsoluteUrl, waitASec } from '@/utils/helpers.js'
 
 export class DarazScraper extends BaseScraper {
   protected config: SiteConfig = {
@@ -42,7 +41,7 @@ export class DarazScraper extends BaseScraper {
     const items = data?.mods?.listItems ?? []
 
     return items.map((it: any, count: number): Product => {
-      const rawUrl = sanitizeLink(it.itemUrl)
+      const rawUrl = toAbsoluteUrl(it.itemUrl, this.config.baseUrl)
 
       const product: Product = {
         number: offset + count + 1,
