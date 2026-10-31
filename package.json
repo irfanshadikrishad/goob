@@ -1,7 +1,7 @@
 {
   "name": "@irfanshadikrishad/goob",
   "description": "A modular, class-based web data extraction toolkit for e-commerce websites, built w/ Node.js.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Irfan Shadik Rishad <hello@irfanshadikrishad.dev> (https://www.irfanshadikrishad.dev)",
   "license": "MIT",
   "scripts": {
