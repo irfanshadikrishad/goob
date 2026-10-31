@@ -10,6 +10,7 @@
     "bump:minor": "npm version minor -m \"chore(release): v%s\"",
     "bump:patch": "npm version patch -m \"chore(release): v%s\"",
     "format": "prettier -w ./",
+    "format:check": "prettier --check .",
     "prepare": "husky",
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
     "test:coverage": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --coverage",

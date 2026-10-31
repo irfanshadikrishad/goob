@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   prettier:
-    name: Prettier check
+    name: Prettify
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
