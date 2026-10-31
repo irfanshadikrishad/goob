@@ -38,10 +38,25 @@ The goal is to provide a consistent interface for collecting structured e-commer
 - Keep the core lightweight and developer-friendly.
 - Establish a foundation for market intelligence and demand research.
 
+#### Prerequisites
+
+```bash
+node -v
+npm -v
+
+```
+
+#### Install
+
+```bash
+npm i @irfanshadikrishad/goob
+
+```
+
 #### Use Cases
 
 ```js
-import { DarazScraper } from 'goob'
+import { DarazScraper } from '@irfanshadikrishad/goob'
 
 const daraz = new DarazScraper()
 const products = await daraz.search({ query: 'watch', limit: 10 })
@@ -58,7 +73,7 @@ You can reach out through either of the following channels:
 - Report an issue: Create a GitHub [Issue](https://github.com/irfanshadikrishad/goob/issues/new) to report bugs, request features, or discuss technical problems.
 - Email support: [hello@irfanshadikrishad.dev](mailto:hello@irfanshadikrishad.dev?subject=Goob%20-%20Support%20Request) for questions, assistance, or anything else related to Goob.
 
-When reporting a bug, please include relevant details, steps to reproduce the issue, and any error messages to
+When reporting a bug, please include relevant details, steps to reproduce the issue or anything that would help fix it.
 
 #### Disclaimer
 
