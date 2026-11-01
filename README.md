@@ -12,7 +12,7 @@ Understanding a market requires more than browsing individual product listings. 
 
 Goob aims to simplify this process by providing a unified, extensible approach to extracting e-commerce data from different sources.
 
-#### Key Use Cases
+#### What You Can Build
 
 - Market Research: Explore product categories, pricing patterns, and market trends.
 - Competitor Analysis: Monitor competitor products, pricing, availability, and product positioning.
@@ -73,7 +73,51 @@ const darazProducts = await daraz.search({
 
 console.log('Rokomari Products:', rokomariProducts)
 console.log('Daraz Products:', darazProducts)
+
+/*
+// Example Output
+Rokomari Products: [
+  {
+    number: 1,
+    title: 'Casio Vintage Digital Watch',
+    price: 1850,
+    originalPrice: 2200,
+    currency: 'BDT',
+    url: 'https://www.rokomari.com/product/123456',
+    imageUrl: 'https://example.com/images/casio-watch.jpg',
+    rating: 4.5,
+    review: 28,
+    source: 'rokomari',
+    brand: 'Casio',
+    seller: 'Rokomari'
+  }
+]
+
+Daraz Products: [
+  {
+    number: 1,
+    title: 'SKMEI Digital Sports Watch for Men',
+    price: 1250,
+    originalPrice: 1800,
+    currency: 'BDT',
+    url: 'https://www.daraz.com.bd/products/example.html',
+    imageUrl: 'https://example.com/images/skmei-watch.jpg',
+    rating: 4.7,
+    sold: 320,
+    totalSold: '320 sold',
+    review: 64,
+    source: 'daraz',
+    location: 'Dhaka',
+    seller: 'Watch Store',
+    brand: 'SKMEI'
+  }
+] */
 ```
+
+#### Available Adapters
+
+- [Daraz](/docs/daraz.md)
+- [Rokomari](/docs/rokomari.md)
 
 #### Support
 
