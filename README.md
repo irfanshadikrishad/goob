@@ -1,4 +1,4 @@
-#### Goob
+#### [Goob]
 
 Goob is an extensible e-commerce data extraction toolkit designed to collect, structure, and analyze publicly available product information from online marketplaces and e-commerce platforms.
 
@@ -6,13 +6,13 @@ It helps developers, entrepreneurs, and researchers gather valuable market intel
 
 Whether you're researching a niche, comparing competitor pricing, exploring product trends, or validating a business idea, Goob provides a foundation for turning scattered e-commerce data into actionable insights.
 
-#### Why Goob?
+#### [Why Goob?]
 
 Understanding a market requires more than browsing individual product listings. It requires collecting and analyzing information across multiple platforms.
 
 Goob aims to simplify this process by providing a unified, extensible approach to extracting e-commerce data from different sources.
 
-#### What You Can Build
+#### [What You Can Build]
 
 - Market Research: Explore product categories, pricing patterns, and market trends.
 - Competitor Analysis: Monitor competitor products, pricing, availability, and product positioning.
@@ -21,7 +21,7 @@ Goob aims to simplify this process by providing a unified, extensible approach t
 - Price Monitoring: Track product prices across supported e-commerce platforms.
 - Business Validation: Gather market data to support product and business decisions.
 
-#### Design Philosophy
+#### [Design Philosophy]
 
 Goob is built around extensibility and simplicity.
 
@@ -29,7 +29,7 @@ Its architecture is designed to support multiple data sources through independen
 
 The goal is to provide a consistent interface for collecting structured e-commerce data, regardless of the underlying platform.
 
-#### Project Goals
+#### [Project Goals]
 
 - Provide a unified interface for e-commerce data extraction.
 - Support multiple marketplaces and data sources.
@@ -38,7 +38,7 @@ The goal is to provide a consistent interface for collecting structured e-commer
 - Keep the core lightweight and developer-friendly.
 - Establish a foundation for market intelligence and demand research.
 
-#### Prerequisites
+#### [Prerequisites]
 
 ```bash
 node -v
@@ -46,14 +46,14 @@ npm -v
 
 ```
 
-#### Install
+#### [Install]
 
 ```bash
 npm i @irfanshadikrishad/goob
 
 ```
 
-#### Use Cases
+#### [Use Cases]
 
 ```js
 import { DarazScraper, RokomariScraper } from '@irfanshadikrishad/goob'
@@ -114,12 +114,12 @@ Daraz Products: [
 ] */
 ```
 
-#### Available Adapters
+#### [Available Adapters]
 
 - [Daraz](/docs/daraz.md)
 - [Rokomari](/docs/rokomari.md)
 
-#### Support
+#### [Support]
 
 Need help with Goob, encountered a bug, or have an idea for improvement? I'm happy to help!
 
@@ -130,6 +130,6 @@ You can reach out through either of the following channels:
 
 When reporting a bug, please include relevant details, steps to reproduce the issue or anything that would help fix it.
 
-#### Disclaimer
+#### [Disclaimer]
 
 Goob is intended for research, educational, and legitimate business intelligence purposes. Users are responsible for ensuring their data collection activities comply with applicable laws, website terms of service, robots.txt policies, and privacy requirements.

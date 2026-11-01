@@ -1,3 +1,3 @@
-#### Available Methods
+#### [Available Methods]
 
 - [Search](./daraz/search.md)

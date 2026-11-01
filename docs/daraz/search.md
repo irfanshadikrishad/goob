@@ -1,4 +1,4 @@
-#### Use Case
+#### [Use Case]
 
 ```ts
 import { DarazScraper } from '@irfanshadikrishad/goob'
@@ -13,7 +13,7 @@ const products = await daraz.search({
 console.log('Daraz Products:', products)
 ```
 
-**Example output**
+#### [Example Output]
 
 ```text
 Daraz Products: [

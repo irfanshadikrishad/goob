@@ -1,4 +1,4 @@
-#### Use Case
+#### [Use Case]
 
 ```ts
 import { RokomariScraper } from '@irfanshadikrishad/goob'
@@ -13,7 +13,7 @@ const products = await rokomari.search({
 console.log('Rokomari Products:', products)
 ```
 
-**Example output**
+#### [Example Output]
 
 ```text
 Rokomari Products: [

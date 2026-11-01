@@ -1,3 +1,3 @@
-#### Available Methods
+#### [Available Methods]
 
 - [Search](./rokomari/search.md)
