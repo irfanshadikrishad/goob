@@ -1,5 +1,9 @@
 #### [Goob]
 
+![NPM Version](https://img.shields.io/npm/v/%40irfanshadikrishad%2Fgoob?style=for-the-badge&labelColor=141b23&color=%2385c1dc)
+![NPM Downloads](https://img.shields.io/npm/dw/%40irfanshadikrishad%2Fgoob?style=for-the-badge&labelColor=141b23&color=%2385c1dc)
+![NPM License](https://img.shields.io/npm/l/%40irfanshadikrishad%2Fgoob?style=for-the-badge&labelColor=141b23&color=%2385c1dc)
+
 Goob is an extensible e-commerce data extraction toolkit designed to collect, structure, and analyze publicly available product information from online marketplaces and e-commerce platforms.
 
 It helps developers, entrepreneurs, and researchers gather valuable market intelligence to better understand product demand, monitor competitors, and identify emerging market opportunities.
